@@ -183,14 +183,14 @@
       font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     }
 
-h1 {
-  margin: 0 0 18px;
-font-size: clamp(1.68rem, 2.9vw, 2.85rem);
-  line-height: 1.1;
-  letter-spacing: -0.025em;
-  font-weight: 800;
-  max-width: 520px;
-}
+    h1 {
+      margin: 0 0 18px;
+      font-size: clamp(1.68rem, 2.9vw, 2.85rem);
+      line-height: 1.1;
+      letter-spacing: -0.025em;
+      font-weight: 800;
+      max-width: 520px;
+    }
 
     .title-line {
       display: block;
@@ -211,13 +211,13 @@ font-size: clamp(1.68rem, 2.9vw, 2.85rem);
       text-justify: inter-word;
     }
 
-.lead {
-  margin: 0;
-  font-size: 1.08rem;
-  color: var(--muted);
-  max-width: 520px;
-  line-height: 1.72;
-}
+    .lead {
+      margin: 0;
+      font-size: 1.08rem;
+      color: var(--muted);
+      max-width: 520px;
+      line-height: 1.72;
+    }
 
     .hero-notes {
       display: flex;
@@ -453,6 +453,45 @@ font-size: clamp(1.68rem, 2.9vw, 2.85rem);
       backdrop-filter: blur(8px);
     }
 
+    .car-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .car-photo-card {
+      padding: 0;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: var(--card-solid);
+      box-shadow: var(--shadow-soft);
+      cursor: pointer;
+      overflow: hidden;
+      appearance: none;
+      color: inherit;
+      text-align: left;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .car-photo-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .car-photo-card img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+    }
+
+    .car-photo-caption {
+      padding: 12px 14px;
+      font-size: 0.96rem;
+      font-weight: 700;
+      color: var(--text);
+      background: var(--card-solid);
+    }
+
     .carousel-controls {
       display: flex;
       gap: 10px;
@@ -654,6 +693,10 @@ font-size: clamp(1.68rem, 2.9vw, 2.85rem);
       .grid {
         grid-template-columns: 1fr;
       }
+
+      .car-gallery {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (max-width: 640px) {
@@ -808,6 +851,30 @@ font-size: clamp(1.68rem, 2.9vw, 2.85rem);
     </section>
 
     <section class="section">
+      <h2>Hình ảnh xe thực tế</h2>
+      <p class="desc">
+        Một vài hình ảnh thực tế để khách dễ nhận xe hơn khi cần liên hệ hoặc đặt lịch.
+      </p>
+
+      <div class="car-gallery">
+        <button class="car-photo-card" type="button" data-image="images/xe-mat-truoc.jpg" data-caption="Mặt trước xe của chú Tâm">
+          <img src="images/xe-mat-truoc.jpg" alt="Mặt trước xe của chú Tâm" />
+          <div class="car-photo-caption">Mặt trước xe</div>
+        </button>
+
+        <button class="car-photo-card" type="button" data-image="images/xe-mat-sau.jpg" data-caption="Mặt sau xe của chú Tâm">
+          <img src="images/xe-mat-sau.jpg" alt="Mặt sau xe của chú Tâm" />
+          <div class="car-photo-caption">Mặt sau xe</div>
+        </button>
+
+        <button class="car-photo-card" type="button" data-image="images/xe-hong-xe.jpg" data-caption="Hông xe của chú Tâm">
+          <img src="images/xe-hong-xe.jpg" alt="Hông xe của chú Tâm" />
+          <div class="car-photo-caption">Hông xe</div>
+        </button>
+      </div>
+    </section>
+
+    <section class="section">
       <div class="gallery-header">
         <div>
           <h2>Album kỷ niệm</h2>
@@ -956,7 +1023,7 @@ font-size: clamp(1.68rem, 2.9vw, 2.85rem);
       const lightboxImage = document.getElementById("lightboxImage");
       const lightboxCaption = document.getElementById("lightboxCaption");
       const lightboxClose = document.getElementById("lightboxClose");
-      const galleryItems = document.querySelectorAll(".gallery-item");
+      const galleryItems = document.querySelectorAll(".gallery-item, .car-photo-card");
 
       function openLightbox(imageSrc, captionText) {
         lightboxImage.src = imageSrc;

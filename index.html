@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="vi">
 <head>
   <meta charset="UTF-8" />
@@ -307,6 +307,63 @@
       padding: 12px 14px; font-size: 0.96rem; font-weight: 700; color: var(--text); background: var(--card-solid);
     }
 
+    .story-wrap {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 20px;
+      align-items: center;
+      margin-top: 18px;
+    }
+
+    .story-photos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .story-photo {
+      overflow: hidden;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: var(--card-solid);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .story-photo img {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      display: block;
+    }
+
+    .story-text {
+      display: grid;
+      gap: 14px;
+    }
+
+    .story-text p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.02rem;
+      line-height: 1.78;
+      text-align: justify;
+      text-justify: inter-word;
+    }
+
+    .story-sign {
+      padding: 15px 16px;
+      border-radius: 17px;
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,0.16), rgba(0,0,0,0.015));
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
+    }
+
+    .story-sign strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 1rem;
+    }
+
     .carousel-controls { display: flex; gap: 10px; margin-top: 16px; justify-content: flex-end; }
 
     .carousel-btn {
@@ -388,6 +445,7 @@
       .hero-image { min-height: 340px; aspect-ratio: 4 / 4.5; }
       .grid { grid-template-columns: 1fr; }
       .car-gallery { grid-template-columns: 1fr; }
+      .story-wrap { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 640px) {
@@ -404,6 +462,7 @@
       }
       .title-line { display: inline; }
       .title-line + .title-line::before { content: " "; }
+      .story-photos { grid-template-columns: 1fr; }
       .cta-row, .social-row { flex-direction: column; }
       .btn, .social-link { width: 100%; }
       .carousel-track { grid-auto-columns: minmax(180px, 78vw); }
@@ -617,13 +676,34 @@
         <div class="section-mark">V</div>
         <h2>Một góc nhỏ cho chú Tâm</h2>
       </div>
-      <p class="desc">
-        Trang web này được mình làm cho bố – chú Tâm, để khách dễ liên hệ hơn và để những chuyến đi của bố nhẹ nhàng hơn một chút.
-        Mình vẫn còn là sinh viên, chỉ đang tập tành làm web, nhưng mong rằng góc nhỏ này có thể giúp bố đỡ vất vả hơn và giúp khách dễ tìm được một chuyến đi thoải mái, thân thiện.
-      </p>
-      <div class="info-item">
-        <strong>– Thắng, con của chú Tâm</strong>
-        Cảm ơn mọi người đã ghé xem và ủng hộ dịch vụ của gia đình mình.
+
+      <div class="story-wrap">
+        <div class="story-photos">
+          <div class="story-photo">
+            <img src="images/bo-con.jpg" alt="Chú Tâm và con trai" />
+          </div>
+
+          <div class="story-photo">
+            <img src="images/ong-noi-bo-con.jpg" alt="Ông nội, chú Tâm và con trai" />
+          </div>
+        </div>
+
+        <div class="story-text">
+          <p>
+            Trang web này được mình làm cho bố – chú Tâm, để khách dễ liên hệ hơn và để những chuyến đi của bố nhẹ nhàng hơn một chút.
+            Mình vẫn còn là sinh viên, chỉ đang tập tành làm web, nhưng mong rằng góc nhỏ này có thể giúp bố đỡ vất vả hơn.
+          </p>
+
+          <p>
+            Với mình, đây không chỉ là một trang giới thiệu dịch vụ, mà còn là một cách nhỏ để lưu lại những hình ảnh của gia đình,
+            của những chuyến đi và của công việc mà bố vẫn làm mỗi ngày.
+          </p>
+
+          <div class="story-sign">
+            <strong>– Thắng, con của chú Tâm</strong>
+            Cảm ơn mọi người đã ghé xem và ủng hộ dịch vụ của gia đình mình.
+          </div>
+        </div>
       </div>
     </section>
 
